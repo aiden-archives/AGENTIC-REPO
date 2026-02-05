@@ -1,0 +1,89 @@
+# ===========================================
+# Dependencies
+# ===========================================
+node_modules/
+vendor/
+.pnpm-store/
+
+# ===========================================
+# Environment & Secrets
+# ===========================================
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+secrets/
+
+# ===========================================
+# Build Output
+# ===========================================
+dist/
+build/
+out/
+.next/
+.nuxt/
+.output/
+.svelte-kit/
+*.tsbuildinfo
+
+# ===========================================
+# Runtime & Cache
+# ===========================================
+*.log
+logs/
+tmp/
+temp/
+.cache/
+.parcel-cache/
+.turbo/
+
+# ===========================================
+# Testing
+# ===========================================
+coverage/
+.nyc_output/
+*.lcov
+test-results/
+playwright-report/
+
+# ===========================================
+# IDE & Editors
+# ===========================================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ===========================================
+# Docker
+# ===========================================
+# Don't ignore docker-compose override for local dev
+# docker-compose.override.yml
+
+# ===========================================
+# Database
+# ===========================================
+*.sqlite
+*.sqlite3
+*.db
+data/
+
+# ===========================================
+# OS Generated
+# ===========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ===========================================
+# Project Specific
+# ===========================================
+# Add project-specific ignores below

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions / Discussion
+    url: https://github.com/ORG/REPO/discussions
+    about: Ask questions and start discussions here (not issues)
+  - name: Security Vulnerability
+    url: https://github.com/ORG/REPO/security/policy
+    about: Report security issues privately

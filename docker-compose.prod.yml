@@ -1,0 +1,70 @@
+# Production overrides for docker-compose.yml
+# Usage: docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+
+services:
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+      target: production
+    restart: always
+    environment:
+      - NODE_ENV=production
+    # Remove volume mounts for production (use built assets)
+    volumes: []
+
+  api:
+    build:
+      context: ./services/api
+      dockerfile: Dockerfile
+      target: production
+    restart: always
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=info
+    # Remove volume mounts for production
+    volumes: []
+    # Add resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
+
+  db:
+    restart: always
+    # Remove port exposure in production (access through internal network only)
+    ports: []
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+
+  redis:
+    restart: always
+    # Remove port exposure in production
+    ports: []
+    # Add password in production
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD}
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+        reservations:
+          cpus: '0.1'
+          memory: 64M
+
+# Production network configuration
+networks:
+  default:
+    driver: bridge
+    driver_opts:
+      com.docker.network.driver.mtu: 1450

@@ -1,0 +1,75 @@
+name: Task
+description: A discrete piece of work to be done
+labels: ["task"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Tasks must have a definition of done
+        If you can't describe how to verify it's complete, it's not ready to be a task.
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Outcome
+      description: What will be true when this is done?
+      placeholder: "When complete, a user can..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Why are we doing this? Link to parent issue, discussion, or doc if relevant.
+    validations:
+      required: false
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What's in? What's explicitly out?
+      placeholder: |
+        **In scope:**
+        - ...
+
+        **Out of scope:**
+        - ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: done
+    attributes:
+      label: Definition of done
+      description: Checklist of things that must be true before closing
+      placeholder: |
+        - [ ] Code complete
+        - [ ] Tests pass
+        - [ ] Docs updated (if applicable)
+        - [ ] Reviewed and approved
+        - [ ] Deployed to staging and verified
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies / Blockers
+      description: What must exist or happen before this can start?
+    validations:
+      required: false
+
+  - type: dropdown
+    id: size
+    attributes:
+      label: Estimated size
+      description: Rough complexity, not hours
+      options:
+        - Small (a few hours)
+        - Medium (1-2 days)
+        - Large (several days)
+        - XL (break this down)
+    validations:
+      required: true

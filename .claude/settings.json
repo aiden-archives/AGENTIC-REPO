@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(make *)",
+      "Bash(docker *)",
+      "Bash(docker-compose *)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(pnpm *)",
+      "Bash(npm *)"
+    ],
+    "deny": [
+      "Bash(rm -rf /)",
+      "Bash(git push --force)"
+    ]
+  }
+}
