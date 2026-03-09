@@ -58,7 +58,7 @@ jobs:
             type=sha
 
       - name: Build and push web image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v7
         with:
           context: ./web
           file: ./web/Dockerfile
@@ -70,7 +70,7 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Build and push api image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v7
         with:
           context: ./services/api
           file: ./services/api/Dockerfile
